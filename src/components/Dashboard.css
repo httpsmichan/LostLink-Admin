@@ -1,0 +1,263 @@
+/* Dashboard.css */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1e1e1e; /* Dark background */
+  color: #f8f9fa; /* Light text */
+}
+
+.sidebar {
+  background-color: #2c2c2c; /* Darker sidebar background */
+  width: 200px; /* Slightly smaller sidebar */
+  padding: 15px; /* Slightly less padding */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  font-size: 1.2rem; /* Smaller logo */
+  font-weight: bold;
+  margin-bottom: 20px; /* Less bottom margin */
+  text-align: center;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 10px; /* Less bottom margin for links */
+}
+
+.sidebar-menu li.active a {
+  color: #007bff; /* Highlighted active link */
+  font-weight: bold;
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 8px 12px; /* Smaller padding for links */
+  text-decoration: none;
+  color: #f8f9fa;
+  border-radius: 4px; /* Smaller border radius */
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem; /* Smaller font size for links */
+}
+
+.sidebar-menu a:hover {
+  background-color: #3b3b3b; /* Darker hover background */
+}
+
+.logout-button {
+  background-color: #dc3545; /* Red logout button */
+  color: #f8f9fa;
+  border: none;
+  padding: 8px 12px; /* Smaller padding */
+  border-radius: 4px; /* Smaller border radius */
+  cursor: pointer;
+  font-size: 0.9rem; /* Smaller font size */
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 15px; /* Slightly less padding */
+}
+
+.dashboard-header {
+  margin-bottom: 20px; /* Less bottom margin */
+  border-bottom: 1px solid #495057; /* Light divider */
+  padding-bottom: 10px; /* Less bottom padding */
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem; /* Smaller heading */
+  margin-bottom: 0;
+}
+
+.overview-section {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* Smaller minmax */
+  gap: 10px; /* Smaller gap */
+  margin-bottom: 20px; /* Less bottom margin */
+}
+
+.overview-card {
+  background-color: #3c4034; /* Dark card background */
+  padding: 10px; /* Smaller padding */
+  border-radius: 6px; /* Smaller border radius */
+  min-height: 50px;
+}
+
+.overview-card .card-header {
+  font-size: 0.9rem; /* Smaller header text */
+  margin-bottom: 5px; /* Less bottom margin */
+  color: #adb5bd; /* Light gray header text */
+}
+
+.overview-card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.overview-card .metric {
+  font-size: 1.5rem; /* Smaller metric */
+  font-weight: bold;
+  margin-bottom: 3px; /* Less bottom margin */
+}
+
+.overview-card .comparison {
+  font-size: 0.7rem; /* Smaller comparison text */
+  color: #6c757d; /* Gray comparison text */
+  display: flex;
+  align-items: center;
+}
+
+.overview-card .comparison svg {
+  width: 12px; /* Smaller icon */
+  height: 12px; /* Smaller icon */
+  margin-right: 3px; /* Less right margin */
+}
+
+.activities-section {
+  margin-bottom: 20px; /* Less bottom margin */
+}
+
+.activities-section .section-header {
+  font-size: 1.2rem; /* Smaller header */
+  margin-bottom: 10px; /* Less bottom margin */
+  border-bottom: 1px solid #495057;
+  padding-bottom: 8px; /* Less bottom padding */
+}
+
+.activities-grid {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  gap: 20px; /* Add space between the sections */
+}
+
+.activity-card {
+  background-color: #3a3938;
+  padding: 10px;
+  border-radius: 6px;
+  width: auto; /* Ensure they fill the width of their container */
+  height: auto;
+}
+
+.activity-card .card-title {
+  font-size: 0.9rem; /* Smaller title */
+  margin-bottom: 8px; /* Less bottom margin */
+  color: #adb5bd;
+}
+
+/* Style for the items within "Latest Lost & Found" and "Matches & Recoveries" */
+.activity-card:nth-child(1) .activity-items, /* Latest Lost & Found */
+  .activity-card:nth-child(2) .activity-items /* Matches & Recoveries */ {
+  display: flex;
+  flex-direction: row; /* Display items horizontally */
+  gap: 10px; /* Space between the items */
+}
+
+.activity-items {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap if needed (for other sections) */
+  gap: 10px; /* Space between items */
+}
+
+.activity-items .item {
+  background-color: #2c2c2c;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align the content to the left */
+  width: 150px; /* Set a fixed width for each item */
+  height: auto;
+}
+
+.activity-items .item img {
+  width: 100%; /* Make image fill the width of the item box */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Smaller border radius */
+  margin-bottom: 5px; /* Less bottom margin */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+}
+
+.activity-items .item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text details to the left */
+  width: 100%; /* Take full width */
+}
+
+.activity-items .item-title {
+  font-weight: bold;
+  margin-bottom: 3px; /* Less bottom margin */
+  font-size: 0.7rem; /* Even smaller title */
+}
+
+.activity-items .item-meta {
+  font-size: 0.6rem; /* Even smaller meta text */
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+}
+
+.activity-items .item-meta svg {
+  width: 8px; /* Smaller icon */
+  height: 8px; /* Smaller icon */
+  margin-right: 2px; /* Less right margin */
+  fill: #6c757d;
+}
+
+.activity-items .item.matched .item-title {
+  color: #28a745; /* Green for "Found" */
+}
+
+.activity-items .item.recovered .item-title {
+  color: #007bff; /* Blue for "Lost" */
+}
+
+.activity-card .empty-state {
+  color: #6c757d;
+  padding: 10px; /* Smaller padding */
+  text-align: center;
+  font-size: 0.8rem; /* Smaller font size */
+}
+
+.icon-up {
+  fill: #28a745;
+  width: 10px;
+  height: 10px;
+}
+
+.icon-down {
+  fill: #dc3545;
+  width: 5px;
+  height: 5px;
+}
+
+.icon-user {
+  width: 10px;
+  height: 10px;
+  margin-right: 2px;
+  fill: #6c757d;
+}
+
+.item-location {
+  font-size: 0.7rem; /* Even smaller meta text */
+  color: #a0a0a0; /* Slightly lighter gray for location */
+  margin-top: 2px; /* Small space above the location */
+}
