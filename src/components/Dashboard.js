@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import "./Dashboard.css"; // Import the CSS file
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import {
+  FaTachometerAlt,
+  FaUsers,
+  FaFileAlt,
+  FaExclamationTriangle,
+  FaChartBar,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const adminLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
@@ -19,219 +29,238 @@ const Dashboard = () => {
     navigate("/login");
   };
 
-  if (!isLoggedIn) {
-    return null; // Or a loading spinner
-  }
+  if (!isLoggedIn) return null;
 
   return (
     <div className="dashboard-container">
       <aside className="sidebar">
         <div className="sidebar-logo">LostLink</div>
         <ul className="sidebar-menu">
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
+          <li className={location.pathname === "/dashboard" ? "active" : ""}>
+            <Link to="/dashboard">
+              <FaTachometerAlt /> Dashboard
+            </Link>
           </li>
-          <li className="active">
-            <Link to="/usermanagement">User Management</Link>
-          </li>
-          <li>
-            <Link to="/postmoderation">Post Moderation</Link>
-          </li>
-          <li>
-            <Link to="/disputeresolution">Dispute Resolution</Link>
-          </li>
-          <li>
-            <Link to="/reports">Reports & Analytics</Link>
+          <li
+            className={location.pathname === "/usermanagement" ? "active" : ""}
+          >
+            <Link to="/usermanagement">
+              <FaUsers /> User Management
+            </Link>
           </li>
           <li>
-            <Link to="/settings">Settings</Link>
+            <Link to="/postmoderation">
+              <FaFileAlt /> Post Moderation
+            </Link>
+          </li>
+          <li>
+            <Link to="/disputeresolution">
+              <FaExclamationTriangle /> Dispute Resolution
+            </Link>
+          </li>
+          <li>
+            <Link to="/reports">
+              <FaChartBar /> Reports & Analytics
+            </Link>
+          </li>
+          <li>
+            <Link to="/settings">
+              <FaCog /> Settings
+            </Link>
           </li>
           <li>
             <button onClick={handleLogout} className="logout-button">
-              Log Out
+              <FaSignOutAlt /> Log Out
             </button>
           </li>
         </ul>
       </aside>
+
       <main className="main-content">
         <header className="dashboard-header">
           <h1>Admin Dashboard</h1>
         </header>
+
         <section className="overview-section">
-          <div className="overview-card active-users">
-            <div className="card-header">Active Users</div>
-            <div className="card-body">
-              <span className="metric">128</span>
-              <span className="comparison">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="icon-up"
+          {[
+            {
+              title: "Active Users",
+              value: "128",
+              change: "+8%",
+              positive: true,
+            },
+            {
+              title: "Lost Items reported",
+              value: "8",
+              change: "-5%",
+              positive: false,
+            },
+            {
+              title: "Found Items reported",
+              value: "16",
+              change: "+7%",
+              positive: true,
+            },
+            {
+              title: "Recovered Items",
+              value: "16",
+              change: "+75%",
+              positive: true,
+            },
+          ].map((card, i) => (
+            <div className="overview-card" key={i}>
+              <div className="card-header">{card.title}</div>
+              <div className="card-body">
+                <span className="metric">{card.value}</span>
+                <span
+                  className={`comparison ${
+                    card.positive ? "positive" : "negative"
+                  }`}
                 >
-                  <path d="M13 20V8l-5.5 5.5-1.42-1.42L12 4.16l6.92 6.92-1.42 1.42L13 8v12z" />
-                </svg>
-                +8% this week
-              </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className={card.positive ? "icon-up" : "icon-down"}
+                  >
+                    <path
+                      d={
+                        card.positive
+                          ? "M13 20V8l-5.5 5.5-1.42-1.42L12 4.16l6.92 6.92-1.42 1.42L13 8v12z"
+                          : "M11 4v12l5.5-5.5 1.42 1.42L12 19.84 5.08 12.92l1.42-1.42L11 16V4z"
+                      }
+                    />
+                  </svg>
+                  {card.change} this week
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="overview-card lost-items">
-            <div className="card-header">Lost Items reported</div>
-            <div className="card-body">
-              <span className="metric">8</span>
-              <span className="comparison negative">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="icon-down"
-                >
-                  <path d="M11 4v12l5.5-5.5 1.42 1.42L12 19.84 5.08 12.92l1.42-1.42L11 16V4z" />
-                </svg>
-                -5% this week
-              </span>
-            </div>
-          </div>
-          <div className="overview-card found-items">
-            <div className="card-header">Found Items reported</div>
-            <div className="card-body">
-              <span className="metric">16</span>
-              <span className="comparison positive">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="icon-up"
-                >
-                  <path d="M13 20V8l-5.5 5.5-1.42-1.42L12 4.16l6.92 6.92-1.42 1.42L13 8v12z" />
-                </svg>
-                +7% this week
-              </span>
-            </div>
-          </div>
-          <div className="overview-card recovered-items">
-            <div className="card-header">Recovered Items</div>
-            <div className="card-body">
-              <span className="metric">16</span>
-              <span className="comparison positive">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="icon-up"
-                >
-                  <path d="M13 20V8l-5.5 5.5-1.42-1.42L12 4.16l6.92 6.92-1.42 1.42L13 8v12z" />
-                </svg>
-                +75% this week
-              </span>
-            </div>
-          </div>
+          ))}
         </section>
 
         <section className="activities-section">
-          <div className="section-header">Recently Activities</div>
+          <div className="section-header">Recent Activities</div>
           <div className="activities-grid">
+            {/* Latest Lost & Found */}
             <div className="activity-card">
               <div className="card-title">Latest Lost & Found</div>
               <div className="activity-items">
-                <div className="item">
-                  <div className="item-image-container">
-                    <img
-                      src="https://i.pinimg.com/736x/f2/bf/ae/f2bfae7467125698bfc5494374d2d950.jpg"
-                      alt="Lost Item"
-                      className="item-image"
-                    />
-                  </div>
-                  <div className="item-details">
-                    <div className="item-title found">Found: Brown Wallet</div>
-                    <div className="item-location">Found at the Hall way</div>
-                    <div className="item-meta">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="icon-user"
-                      >
-                        <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z" />
-                      </svg>
-                      Ellen Joe 15 min... ago
+                {[
+                  {
+                    type: "Found",
+                    label: "Found: Brown Wallet",
+                    location: "Found at the Hall way",
+                    name: "Ellen Joe",
+                    time: "15 min... ago",
+                    image:
+                      "https://i.pinimg.com/736x/f2/bf/ae/f2bfae7467125698bfc5494374d2d950.jpg",
+                    className: "found",
+                  },
+                  {
+                    type: "Lost",
+                    label: "Lost: Brown Wallet",
+                    location: "Lost at the Hall way",
+                    name: "John Doe",
+                    time: "10 min... ago",
+                    image:
+                      "https://i.pinimg.com/736x/22/8c/3d/228c3d1d9634dbab92b804acfcd3e1cb.jpg",
+                    className: "lost",
+                  },
+                ].map((item, idx) => (
+                  <Link
+                    to="/display"
+                    state={{ item }}
+                    key={idx}
+                    className="item-link-wrapper"
+                  >
+                    <div className="item">
+                      <div className="item-image-container">
+                        <img
+                          src={item.image}
+                          alt={`${item.type} Item`}
+                          className="item-image"
+                        />
+                      </div>
+                      <div className="item-details">
+                        <div className={`item-title ${item.className}`}>
+                          {item.label}
+                        </div>
+                        <div className="item-location">{item.location}</div>
+                        <div className="item-meta">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="icon-user"
+                          >
+                            <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z" />
+                          </svg>
+                          {item.name} {item.time}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="item">
-                  <div className="item-image-container">
-                    <img
-                      src="https://i.pinimg.com/736x/22/8c/3d/228c3d1d9634dbab92b804acfcd3e1cb.jpg"
-                      alt="Found Item"
-                      className="item-image"
-                    />
-                  </div>
-                  <div className="item-details">
-                    <div className="item-title lost">Lost: Brown Wallet</div>
-                    <div className="item-location">Lost at the Hall way</div>
-                    <div className="item-meta">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="icon-user"
-                      >
-                        <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z" />
-                      </svg>
-                      John Doe 10 min... ago
-                    </div>
-                  </div>
-                </div>
+                  </Link>
+                ))}
               </div>
             </div>
 
+            {/* Matches & Recoveries */}
             <div className="activity-card">
               <div className="card-title">Matches & Recoveries</div>
               <div className="activity-items">
-                <div className="item matched">
-                  <div className="item-image-container">
-                    <img
-                      src="https://i.pinimg.com/736x/f2/bf/ae/f2bfae7467125698bfc5494374d2d950.jpg"
-                      alt="Matched Item"
-                      className="item-image"
-                    />
-                  </div>
-                  <div className="item-details">
-                    <div className="item-title found">Found: Brown Wallet</div>
-                    <div className="item-location">Found at the Hall way</div>
-                    <div className="item-meta">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="icon-user"
-                      >
-                        <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z" />
-                      </svg>
-                      Ellen Joe 15 min... ago
+                {[
+                  {
+                    type: "Found",
+                    label: "Found: Brown Wallet",
+                    location: "Found at the Hall way",
+                    name: "Ellen Joe",
+                    time: "15 min... ago",
+                    image:
+                      "https://i.pinimg.com/736x/f2/bf/ae/f2bfae7467125698bfc5494374d2d950.jpg",
+                    className: "found",
+                  },
+                  {
+                    type: "Lost",
+                    label: "Lost: Brown Wallet",
+                    location: "Lost at the Hall way",
+                    name: "John Doe",
+                    time: "10 min... ago",
+                    image:
+                      "https://i.pinimg.com/736x/22/8c/3d/228c3d1d9634dbab92b804acfcd3e1cb.jpg",
+                    className: "lost",
+                  },
+                ].map((item, idx) => (
+                  <Link
+                    to="/display"
+                    state={{ item }}
+                    key={idx}
+                    className="item-link-wrapper"
+                  >
+                    <div className="item">
+                      <div className="item-image-container">
+                        <img
+                          src={item.image}
+                          alt={`${item.type} Item`}
+                          className="item-image"
+                        />
+                      </div>
+                      <div className="item-details">
+                        <div className={`item-title ${item.className}`}>
+                          {item.label}
+                        </div>
+                        <div className="item-location">{item.location}</div>
+                        <div className="item-meta">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="icon-user"
+                          >
+                            <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z" />
+                          </svg>
+                          {item.name} {item.time}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="item recovered">
-                  <div className="item-image-container">
-                    <img
-                      src="https://i.pinimg.com/736x/22/8c/3d/228c3d1d9634dbab92b804acfcd3e1cb.jpg"
-                      alt="Recovered Item"
-                      className="item-image"
-                    />
-                  </div>
-                  <div className="item-details">
-                    <div className="item-title lost">Lost: Brown Wallet</div>
-                    <div className="item-location">Lost at the Hall way</div>
-                    <div className="item-meta">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="icon-user"
-                      >
-                        <path d="M12 4a4 4 0 100 8 4 4 0 000-8zm0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4z" />
-                      </svg>
-                      John Doe 10 min... ago
-                    </div>
-                  </div>
-                </div>
+                  </Link>
+                ))}
               </div>
             </div>
 

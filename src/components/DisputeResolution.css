@@ -1,0 +1,185 @@
+.dispute-resolution-container {
+  display: flex;
+  height: 100vh;
+  color: #222222;
+  font-size: 1rem; /* globally smaller text */
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.content-header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.content-header h2 {
+  margin: 0;
+  font-size: 1.2rem; /* smaller heading */
+  color: #222 !important;
+}
+
+.search-and-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-right: none; /* seamless merge with filter button */
+  padding: 0.4rem 0.8rem;
+  background-color: #ffffff !important;
+  border-top-left-radius: 8px;
+  height: 50px;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  fill: #888888;
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 4px 0;
+}
+
+.search-bar input[type="text"]::placeholder {
+  color: #888888;
+}
+
+.filter-button {
+  background-color: #007bff !important;
+  color: #fff;
+  border: none !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  height: 50px;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+.dispute-list {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 0; /* Remove padding */
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dispute-table {
+  margin-top: -20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dispute-table thead th {
+  padding: 8px;
+  height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
+  color: #666666;
+  font-weight: 500;
+  font-size: 0.9rem;
+  background-color: #ffffff !important;
+}
+
+.dispute-table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #f3f3f3;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.dispute-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.item-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-cell img {
+  width: 50px; /* smaller image */
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.item-cell p {
+  color: #333;
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+
+.dispute-actions {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.dispute-actions a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.dispute-actions a:hover {
+  color: #0056b3;
+}
+
+.more-button-container {
+  text-align: start;
+  margin-top: 10px;
+}
+
+.more-button {
+  background-color: #eeeeee !important;
+  color: #333333 !important;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+.more-button:hover {
+  background-color: #dddddd;
+}
+
+.pending {
+  color: #ff9800;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.claimed {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 0.75rem;
+}

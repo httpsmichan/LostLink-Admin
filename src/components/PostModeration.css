@@ -1,0 +1,137 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+.post-moderation-container {
+  display: flex;
+  min-height: 100vh;
+  margin-top: -20px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.content-header {
+  margin-bottom: 20px; /* Less bottom margin */
+  border-bottom: 1px solid #000000; /* Light divider */
+  padding-bottom: 10px; /* Less bottom padding */
+  margin-left: 0px;
+}
+
+.content-header h1 {
+  font-size: 1.5rem; /* Smaller heading */
+  margin-bottom: 0;
+}
+
+.moderation-controls {
+  display: flex;
+  margin-bottom: 0; /* remove gap above the table */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden; /* ensures rounded corners on top only */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-right: none; /* seamless merge with filter button */
+  padding: 0.4rem 0.8rem;
+  background-color: #ffffff !important;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.search-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  color: #666;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #050505 !important;
+}
+
+.filter-button {
+  padding: 0 15px;
+  background-color: #007bff !important;
+  color: #fff;
+  border: none !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  height: 50px;
+}
+
+.filter-button:hover {
+  background-color: #0056b3;
+}
+
+.post-table-container {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.post-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.post-table th,
+.post-table td {
+  text-align: left;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.post-table th {
+  font-weight: 500;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.post-table td {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.status-pending {
+  color: #ff9800;
+}
+
+.status-claimed {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.load-more-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.load-more-button:hover {
+  background-color: #e0e0e0;
+}

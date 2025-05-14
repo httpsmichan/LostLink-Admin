@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import {
+  FaTachometerAlt,
+  FaUsers,
+  FaFileAlt,
+  FaExclamationTriangle,
+  FaChartBar,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import "./Dashboard.css"; // Assuming you have some base dashboard styles
 import "./UserManagement.css"; // Import specific styles for User Management
 
 const Dashboard = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [users, setUsers] = useState([
     {
       id: "U12345",
@@ -123,49 +134,63 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="dashboard-container">
+    <div className="userdashboard-container">
       <aside className="sidebar">
         <div className="sidebar-logo">LostLink</div>
         <ul className="sidebar-menu">
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
+          <li className={location.pathname === "/dashboard" ? "active" : ""}>
+            <Link to="/dashboard">
+              <FaTachometerAlt /> Dashboard
+            </Link>
           </li>
-          <li className="active">
-            <Link to="/usermanagement">User Management</Link>
-          </li>
-          <li>
-            <Link to="/postmoderation">Post Moderation</Link>
-          </li>
-          <li>
-            <Link to="/disputeresolution">Dispute Resolution</Link>
-          </li>
-          <li>
-            <Link to="/reports">Reports & Analytics</Link>
+          <li
+            className={location.pathname === "/usermanagement" ? "active" : ""}
+          >
+            <Link to="/usermanagement">
+              <FaUsers /> User Management
+            </Link>
           </li>
           <li>
-            <Link to="/settings">Settings</Link>
+            <Link to="/postmoderation">
+              <FaFileAlt /> Post Moderation
+            </Link>
+          </li>
+          <li>
+            <Link to="/disputeresolution">
+              <FaExclamationTriangle /> Dispute Resolution
+            </Link>
+          </li>
+          <li>
+            <Link to="/reports">
+              <FaChartBar /> Reports & Analytics
+            </Link>
+          </li>
+          <li>
+            <Link to="/settings">
+              <FaCog /> Settings
+            </Link>
           </li>
           <li>
             <button onClick={handleLogout} className="logout-button">
-              Log Out
+              <FaSignOutAlt /> Log Out
             </button>
           </li>
         </ul>
       </aside>
-      <main className="main-content">
-        <header className="dashboard-header">
+      <main className="usermain-content">
+        <header className="userdashboard-header">
           <h1>User Management</h1>
         </header>
         <section className="user-management-section">
           <div className="user-management-header">
-            <div className="search-bar">
+            <div className="user-search-bar">
               <input
                 type="text"
                 placeholder="Search User..."
                 value={searchTerm}
                 onChange={handleSearch}
               />
-              <button className="filter-button" onClick={handleFilter}>
+              <button className="user-filter-button" onClick={handleFilter}>
                 Filter
               </button>
             </div>
@@ -197,7 +222,7 @@ const Dashboard = () => {
                     </td>
                     <td>
                       <button
-                        className="view-button"
+                        className="user-view-button"
                         onClick={() => handleView(user.id)}
                       >
                         View
@@ -207,13 +232,13 @@ const Dashboard = () => {
                 ))}
                 {filteredUsers.length === 0 && (
                   <tr>
-                    <td colSpan="6" className="no-users">
+                    <td colSpan="6" className="user-no-users">
                       No users found.
                     </td>
                   </tr>
                 )}
                 <tr>
-                  <td colSpan="6" className="more-users">
+                  <td colSpan="6" className="user-more-users">
                     More...
                   </td>
                 </tr>
