@@ -1,9 +1,8 @@
-/* Dashboard.css */
 .dashboard-container {
   display: flex;
   height: auto;
   background-color: #e6e3e3 !important;
-  color: #020202; /* Light text */
+  color: #020202;
   margin-top: -20px;
 }
 .sidebar {
@@ -12,156 +11,131 @@
   padding: 15px;
   display: flex;
   flex-direction: column;
-  position: fixed; /* Fix the sidebar in place */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Prevent scroll inside sidebar */
+  height: 100vh;
+  overflow: hidden;
   box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
-  border-radius: 6px; /* Optional: Adds rounded corners */
+  border-radius: 6px;
 }
-
 .sidebar-logo {
   margin-top: 25px;
-  font-size: 1.2rem; /* Smaller logo */
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 20px; /* Less bottom margin */
+  margin-bottom: 20px;
   text-align: center;
   color: black;
 }
-
 .sidebar-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .sidebar-menu li {
-  margin-bottom: 10px; /* Less bottom margin for links */
+  margin-bottom: 10px;
 }
-
 .sidebar-menu li.active a {
-  color: #909192; /* Highlighted active link */
+  color: #909192;
   font-weight: bold;
 }
-
 .sidebar-menu a {
   display: block;
-  padding: 8px 12px; /* Smaller padding for links */
+  padding: 8px 12px;
   text-decoration: none;
   color: #000000 !important;
-  border-radius: 4px; /* Smaller border radius */
+  border-radius: 4px;
   transition: background-color 0.3s ease;
-  font-size: 0.9rem; /* Smaller font size for links */
+  font-size: 0.9rem;
 }
-
 .sidebar-menu a:hover {
   background-color: #3e91df !important;
 }
-
 .logout-button {
   background-color: #ee1329 !important;
   color: #f8f9fa;
   border: none;
-  padding: 8px 12px; /* Smaller padding */
-  border-radius: 4px; /* Smaller border radius */
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9rem; /* Smaller font size */
+  font-size: 0.9rem;
   transition: background-color 0.3s ease;
   width: 100%;
   text-align: left;
   position: absolute;
   bottom: 50px !important;
 }
-
 .logout-button:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
-
 .main-content {
   margin-left: 200px;
   flex-grow: 1;
-  padding: 15px; /* Slightly less padding */
+  padding: 15px;
 }
-
 .dashboard-header {
-  margin-bottom: 20px; /* Less bottom margin */
-  border-bottom: 1px solid #495057; /* Light divider */
-  padding-bottom: 10px; /* Less bottom padding */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #495057;
+  padding-bottom: 10px;
 }
-
 .dashboard-header h1 {
-  font-size: 1.5rem; /* Smaller heading */
+  font-size: 1.5rem;
   margin-bottom: 0;
 }
-
 .overview-section {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(150px, 1fr)
-  ); /* Smaller minmax */
-  gap: 10px; /* Smaller gap */
-  margin-bottom: 20px; /* Less bottom margin */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
 }
-
 .overview-card {
-  background-color: #3484e0; /* white background */
+  background-color: #3484e0;
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-
 .overview-card .card-header {
-  font-size: 0.9rem; /* Smaller header text */
-  margin-bottom: 5px; /* Less bottom margin */
-  color: #000000; /* Light gray header text */
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #000000;
 }
-
 .overview-card .card-body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   color: #000000;
 }
-
 .overview-card .metric {
-  font-size: 1.5rem; /* Smaller metric */
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 3px; /* Less bottom margin */
+  margin-bottom: 3px;
   color: #000000;
 }
-
 .overview-card .comparison {
-  font-size: 0.7rem; /* Smaller comparison text */
-  color: #232324; /* Gray comparison text */
+  font-size: 0.7rem;
+  color: #232324;
   display: flex;
   align-items: center;
 }
-
 .overview-card .comparison svg {
-  width: 12px; /* Smaller icon */
-  height: 12px; /* Smaller icon */
-  margin-right: 3px; /* Less right margin */
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
 }
-
 .activities-section {
-  margin-bottom: 20px; /* Less bottom margin */
+  margin-bottom: 20px;
 }
-
 .activities-section .section-header {
-  font-size: 1.2rem; /* Smaller header */
-  margin-bottom: 10px; /* Less bottom margin */
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   border-bottom: 1px solid #495057;
-  padding-bottom: 8px; /* Less bottom padding */
+  padding-bottom: 8px;
 }
-
 .activities-grid {
   display: flex;
-  flex-direction: column; /* Stack sections vertically */
-  gap: 20px; /* Add space between the sections */
+  flex-direction: column;
+  gap: 20px;
 }
-
 .activity-card {
   background-color: #ffffff;
   padding: 10px;
@@ -170,27 +144,22 @@
   height: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .activity-card .card-title {
-  font-size: 0.9rem; /* Smaller title */
-  margin-bottom: 8px; /* Less bottom margin */
+  font-size: 0.9rem;
+  margin-bottom: 8px;
   color: #000000;
 }
-
-/* Style for the items within "Latest Lost & Found" and "Matches & Recoveries" */
-.activity-card:nth-child(1) .activity-items, /* Latest Lost & Found */
-  .activity-card:nth-child(2) .activity-items /* Matches & Recoveries */ {
+.activity-card:nth-child(1) .activity-items,
+.activity-card:nth-child(2) .activity-items {
   display: flex;
-  flex-direction: row; /* Display items horizontally */
-  gap: 10px; /* Space between the items */
+  flex-direction: row;
+  gap: 10px;
 }
-
 .activity-items {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap if needed (for other sections) */
-  gap: 10px; /* Space between items */
+  flex-wrap: wrap;
+  gap: 10px;
 }
-
 .activity-items .item {
   background-color: #e3e2ec;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -198,92 +167,78 @@
   padding: 8px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align the content to the left */
-  width: 150px; /* Set a fixed width for each item */
+  align-items: flex-start;
+  width: 150px;
   height: auto;
 }
-
 .activity-items .item img {
-  width: 100%; /* Make image fill the width of the item box */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 4px; /* Smaller border radius */
-  margin-bottom: 5px; /* Less bottom margin */
-  object-fit: cover; /* Ensure image covers the area without distortion */
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  object-fit: cover;
 }
-
 .activity-items .item-details {
   display: flex;
   flex-direction: column;
   color: #3d3e3f;
-  align-items: flex-start; /* Align text details to the left */
-  width: 100%; /* Take full width */
+  align-items: flex-start;
+  width: 100%;
 }
-
 .activity-items .item-title {
   font-weight: bold;
-  margin-bottom: 3px; /* Less bottom margin */
-  font-size: 0.7rem; /* Even smaller title */
+  margin-bottom: 3px;
+  font-size: 0.7rem;
 }
-
 .activity-items .item-meta {
-  font-size: 0.6rem; /* Even smaller meta text */
+  font-size: 0.6rem;
   color: #3d3e3f;
   display: flex;
   align-items: center;
 }
-
 .activity-items .item-meta svg {
-  width: 8px; /* Smaller icon */
-  height: 8px; /* Smaller icon */
-  margin-right: 2px; /* Less right margin */
+  width: 8px;
+  height: 8px;
+  margin-right: 2px;
   fill: #38393a;
 }
-
 .activity-items .item.matched .item-title {
-  color: #28a745; /* Green for "Found" */
+  color: #28a745;
 }
-
 .activity-items .item.recovered .item-title {
-  color: #007bff; /* Blue for "Lost" */
+  color: #007bff;
 }
-
 .activity-card .empty-state {
   color: #6c757d;
-  padding: 10px; /* Smaller padding */
+  padding: 10px;
   text-align: center;
-  font-size: 0.8rem; /* Smaller font size */
+  font-size: 0.8rem;
 }
-
 .icon-up {
   fill: #28a745;
   width: 10px;
   height: 10px;
 }
-
 .icon-down {
   fill: #dc3545;
   width: 5px;
   height: 5px;
 }
-
 .icon-user {
   width: 10px;
   height: 10px;
   margin-right: 2px;
   fill: #6c757d;
 }
-
 .item-location {
-  font-size: 0.7rem; /* Even smaller meta text */
-  color: #a0a0a0; /* Slightly lighter gray for location */
-  margin-top: 2px; /* Small space above the location */
+  font-size: 0.7rem;
+  color: #a0a0a0;
+  margin-top: 2px;
 }
-
 a {
   text-decoration: none;
   color: inherit;
 }
-
 a:visited {
   color: inherit;
 }

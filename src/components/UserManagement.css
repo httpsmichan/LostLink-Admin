@@ -47,14 +47,14 @@
 }
 
 .userdashboard-header {
-  margin-bottom: 20px; /* Less bottom margin */
-  border-bottom: 1px solid #000000; /* Light divider */
-  padding-bottom: 10px; /* Less bottom padding */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 10px;
   margin-left: -200px;
 }
 
 .userdashboard-header h1 {
-  font-size: 1.5rem; /* Smaller heading */
+  font-size: 1.5rem;
   margin-bottom: 0;
 }
 
@@ -65,7 +65,7 @@
 .user-management-header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 0; /* Remove margin so it connects visually with the table */
+  margin-bottom: 0;
   width: 100%;
 }
 
@@ -75,7 +75,7 @@
   height: 50px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
-  border-bottom: none; /* Seamless transition to the table */
+  border-bottom: none;
 }
 
 .user-search-bar input[type="text"] {
@@ -104,8 +104,8 @@
 
 .user-list-container {
   margin-left: -20px;
-  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1); /* Top shadow only */
-  overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
 }
 .user-table {
   width: 100%;
@@ -182,26 +182,22 @@
   color: #6c757d;
 }
 
-/* Adjust the main content padding to align with the sidebar's left edge */
 .usermain-content {
-  padding-left: 250px; /* Same width as the sidebar */
+  padding-left: 250px;
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-/* Adjust the user-management-section to account for the main content's padding */
 .user-management-section {
-  margin-left: -200px; /* Adjust based on sidebar width and main content padding */
+  margin-left: -200px;
   margin-right: 0;
 }
 
-/* Further refine the table alignment within the section */
 .user-list-container {
-  margin-left: 0; /* Ensure the container itself isn't adding extra left margin */
+  margin-left: 0;
 }
 
 .user-table {
-  /* The table will now naturally align with the left edge of its container */
-  width: 100%; /* Make sure it takes the full width of its adjusted container */
+  width: 100%;
 }

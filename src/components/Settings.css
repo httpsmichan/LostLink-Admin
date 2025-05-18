@@ -1,8 +1,8 @@
 .settings-container {
   display: flex;
   height: 100vh;
-  background-color: #ffffff; /* white background */
-  color: #222; /* dark text for contrast */
+  background-color: #ffffff;
+  color: #222;
   font-family: "Segoe UI", sans-serif;
 }
 
@@ -11,30 +11,28 @@
   flex: 1;
   padding: 40px;
   overflow-y: auto;
-  background-color: #ffffff; /* white background */
+  background-color: #ffffff;
 }
 
 .content-header {
   margin-bottom: 25px;
-  border-bottom: 1px solid #dcdcdc; /* lighter border */
+  border-bottom: 1px solid #dcdcdc;
   padding-bottom: 10px;
 }
 
 .content-header h2 {
   margin: 0;
   font-size: 1.5rem;
-  color: #333; /* dark text */
+  color: #333;
 }
 
-/* Settings box */
 .settings-content {
-  background-color: #ffffff; /* white background */
+  background-color: #ffffff;
   border-radius: 6px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* slight shadow for separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Search and filter */
 .search-and-filter {
   display: flex;
   gap: 10px;
@@ -44,11 +42,11 @@
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: #ffffff; /* white background */
+  background-color: #ffffff;
   border-radius: 4px;
   padding: 6px 10px;
   flex: 1;
-  border: 1px solid #ccc; /* light border */
+  border: 1px solid #ccc;
 }
 
 .search-icon {
@@ -62,7 +60,7 @@
   background: none;
   border: none;
   outline: none;
-  color: #333; /* dark text */
+  color: #333;
   font-size: 0.9rem;
   flex: 1;
 }
@@ -72,9 +70,9 @@
 }
 
 .filter-button {
-  background-color: #ffffff; /* white background */
-  color: #333; /* dark text */
-  border: 1px solid #ccc; /* light gray border */
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
   padding: 8px 12px;
   border-radius: 4px;
   font-size: 0.85rem;
@@ -83,10 +81,9 @@
 }
 
 .filter-button:hover {
-  background-color: #b9b7b7; /* light gray on hover */
+  background-color: #b9b7b7;
 }
 
-/* Settings list */
 .settings-list {
   list-style: none;
   padding: 0;
@@ -101,12 +98,12 @@
   display: block;
   padding: 10px;
   text-decoration: none;
-  color: #333; /* dark text */
+  color: #333;
   border-radius: 4px;
   transition: background 0.2s;
 }
 
 .settings-list a:hover {
-  background-color: #f0f0f0; /* light gray on hover */
-  color: #000; /* dark text on hover */
+  background-color: #f0f0f0;
+  color: #000;
 }
